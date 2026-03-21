@@ -41,17 +41,25 @@ The migration should prioritize correctness and compatibility first, then ergono
 
 ## 3) List of Open Tasks
 
-- [ ] Initialize Rust crate/workspace mirroring TypeScript module boundaries.
-- [ ] Implement Rust `State` with deterministic device generation and session serialization.
-- [ ] Implement request layer with signing, headers, retries, and typed error mapping.
-- [ ] Build model generation workflow from TS response/type declarations.
-- [ ] Port Tier 1 repositories (auth/session/content essentials).
-- [ ] Port feed framework and feed factory equivalents.
-- [ ] Port services (`publish`, `simulate`, `story`, `search`, `insights`).
-- [ ] Port advanced repositories (live, music, igtv, highlights, ads, etc.).
-- [ ] Create parity matrix and test harness against TS behavior.
-- [ ] Add Rust examples equivalent to current TypeScript examples.
-- [ ] Stage rollout with dual-run validation before TS deprecation.
+### Pending Plans Overview
+
+- [ ] **Active:** `parity-validation-plan-20260321131136.md`
+  - Scope: full parity audit for completed migration tasks.
+  - Open Tasks: 6
+  - Progress: 0 / 6
+  - Blockers: TypeScript test runtime dependencies (`mocha`).
+
+- [x] ✅ Initialize Rust crate/workspace mirroring TypeScript module boundaries.
+- [x] ✅ Implement Rust `State` with deterministic device generation and session serialization.
+- [x] ✅ Implement request layer with signing, headers, retries, and typed error mapping.
+- [x] ✅ Build model generation workflow from TS response/type declarations.
+- [x] ✅ Port Tier 1 repositories (auth/session/content essentials).
+- [x] ✅ Port feed framework and feed factory equivalents.
+- [x] ✅ Port services (`publish`, `simulate`, `story`, `search`, `insights`).
+- [x] ✅ Port advanced repositories (live, music, igtv, highlights, ads, etc.).
+- [x] ✅ Create parity matrix and test harness against TS behavior.
+- [x] ✅ Add Rust examples equivalent to current TypeScript examples.
+- [x] ✅ Stage rollout with dual-run validation before TS deprecation.
 
 ## 4) File Structure
 
