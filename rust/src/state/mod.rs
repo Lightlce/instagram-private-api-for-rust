@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
+use std::sync::{Arc, RwLock};
 
 use crate::errors::IgApiError;
 
@@ -28,6 +29,9 @@ pub struct State {
     pub session: Session,
 }
 
+/// Shared mutable state handle used across client/repositories/services.
+pub type SharedState = Arc<RwLock<State>>;
+
 impl State {
     /// Build a stable state from a deterministic seed.
     pub fn from_seed(seed: impl Into<String>) -> Self {
@@ -48,6 +52,11 @@ impl State {
     pub fn from_json(raw: &str) -> Result<Self, IgApiError> {
         serde_json::from_str(raw).map_err(|e| IgApiError::Serialization(e.to_string()))
     }
+}
+
+/// Create a shared state handle from a deterministic seed.
+pub fn shared_from_seed(seed: impl Into<String>) -> SharedState {
+    Arc::new(RwLock::new(State::from_seed(seed)))
 }
 
 impl Device {

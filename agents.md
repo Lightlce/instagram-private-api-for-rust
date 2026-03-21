@@ -41,6 +41,14 @@ The migration should prioritize correctness and compatibility first, then ergono
 
 ## 3) List of Open Tasks
 
+### Pending Plans Overview
+
+- [ ] **Active:** `parity-validation-plan-20260321131136.md`
+  - Scope: full parity audit for completed migration tasks.
+  - Open Tasks: 6
+  - Progress: 0 / 6
+  - Blockers: TypeScript test runtime dependencies (`mocha`).
+
 - [x] ✅ Initialize Rust crate/workspace mirroring TypeScript module boundaries.
 - [x] ✅ Implement Rust `State` with deterministic device generation and session serialization.
 - [x] ✅ Implement request layer with signing, headers, retries, and typed error mapping.
@@ -91,7 +99,7 @@ The migration should prioritize correctness and compatibility first, then ergono
 - Proceed with any non-blocking tasks.
   - For blocking tasks, add questions in `.agents/qna.md` using a reddit-style thread per question and include status so answers can be provided asynchronously.
   - After posting a blocking question, continue with the next non-blocking task.
-- Check `./agents/qna.md` for updates and follow up on them.
+- Check `./.agents/qna.md` for updates and follow up on them.
 
 ## 6) Agent Forbids
 

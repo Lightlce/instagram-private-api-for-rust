@@ -1,18 +1,22 @@
-use crate::{http::HttpTransport, state::State};
+use crate::{
+    http::HttpTransport,
+    state::SharedState,
+};
 
 /// Shared repository context for endpoint modules.
 #[derive(Debug, Clone)]
 pub struct RepositoryContext {
-    pub state: State,
+    pub state: SharedState,
 }
 
 impl RepositoryContext {
-    pub fn new(state: State) -> Self {
+    pub fn new(state: SharedState) -> Self {
         Self { state }
     }
 
     pub fn default_headers(&self) -> Vec<(String, String)> {
-        HttpTransport::default_headers(&self.state)
+        let state = self.state.read().expect("shared state read lock");
+        HttpTransport::default_headers(&state)
     }
 }
 
@@ -232,7 +236,7 @@ pub struct Repositories {
 }
 
 impl Repositories {
-    pub fn new(state: State) -> Self {
+    pub fn new(state: SharedState) -> Self {
         let context = RepositoryContext::new(state);
         Self {
             account: AccountRepository::new(context.clone()),
@@ -245,13 +249,13 @@ impl Repositories {
 
 #[cfg(test)]
 mod tests {
-    use crate::state::State;
+    use crate::state::shared_from_seed;
 
     use super::Repositories;
 
     #[test]
     fn repositories_expose_known_endpoints() {
-        let repos = Repositories::new(State::from_seed("demo"));
+        let repos = Repositories::new(shared_from_seed("demo"));
 
         assert_eq!(repos.account.login_endpoint(), "/api/v1/accounts/login/");
         assert_eq!(repos.session.sync_endpoint(), "/api/v1/qe/sync/");

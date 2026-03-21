@@ -1,16 +1,20 @@
-use crate::{repositories::Repositories, services::Services, state::State};
+use crate::{
+    repositories::Repositories,
+    services::Services,
+    state::{shared_from_seed, SharedState},
+};
 
 /// High-level API client surface (`IgApiClient` equivalent).
 #[derive(Debug, Clone)]
 pub struct IgApiClient {
-    pub state: State,
+    pub state: SharedState,
     pub repositories: Repositories,
     pub services: Services,
 }
 
 impl IgApiClient {
     pub fn from_seed(seed: impl Into<String>) -> Self {
-        let state = State::from_seed(seed);
+        let state = shared_from_seed(seed);
         let repositories = Repositories::new(state.clone());
         let services = Services::new(repositories.clone());
 

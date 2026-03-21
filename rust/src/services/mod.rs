@@ -123,13 +123,13 @@ impl Services {
 
 #[cfg(test)]
 mod tests {
-    use crate::{repositories::Repositories, state::State};
+    use crate::{repositories::Repositories, state::shared_from_seed};
 
     use super::Services;
 
     #[test]
     fn services_expose_bootstrap_sequences() {
-        let services = Services::new(Repositories::new(State::from_seed("demo")));
+        let services = Services::new(Repositories::new(shared_from_seed("demo")));
 
         assert_eq!(services.publish.create_photo_publish_plan().len(), 2);
         assert_eq!(services.search.bootstrap_endpoints().len(), 1);

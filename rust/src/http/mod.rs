@@ -28,8 +28,9 @@ pub struct HttpTransport;
 impl HttpTransport {
     pub fn default_headers(state: &State) -> Vec<(String, String)> {
         vec![
+            ("x-ig-device-id".to_string(), state.device.uuid.to_string()),
             (
-                "x-ig-device-id".to_string(),
+                "x-ig-android-id".to_string(),
                 state.device.device_id.to_string(),
             ),
             (
@@ -76,6 +77,8 @@ fn bytes_to_hex(bytes: &[u8]) -> String {
 
 #[cfg(test)]
 mod tests {
+    use crate::state::State;
+
     use super::HttpTransport;
 
     #[test]
@@ -91,5 +94,18 @@ mod tests {
         let signed = HttpTransport::sign_payload("{}", "secret").expect("payload signs");
         assert!(signed.signed_body.ends_with(".{}"));
         assert_eq!(signed.ig_sig_key_version, "4");
+    }
+
+    #[test]
+    fn default_headers_use_uuid_for_x_ig_device_id() {
+        let state = State::from_seed("demo");
+        let headers = HttpTransport::default_headers(&state);
+
+        assert!(headers
+            .iter()
+            .any(|(k, v)| k == "x-ig-device-id" && v == &state.device.uuid));
+        assert!(headers
+            .iter()
+            .any(|(k, v)| k == "x-ig-android-id" && v == &state.device.device_id));
     }
 }
