@@ -95,6 +95,7 @@ The migration should prioritize correctness and compatibility first, then ergono
 - Always follow secure security practices and keep any sensitive information away from this directory, including untracked files in git.
 - Commit changes following conventional commit rules after each sensible change.
   - Before committing: run linters/formatters, standardize code, and update progress on completed items using checkmark emojis.
+  - Before starting work: switch to `master` and pull the latest changes from `origin/master`.
   - Make best effort to keep the git worktree clean.
 - Proceed with any non-blocking tasks.
   - For blocking tasks, add questions in `.agents/qna.md` using a reddit-style thread per question and include status so answers can be provided asynchronously.
