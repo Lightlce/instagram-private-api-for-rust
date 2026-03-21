@@ -1,0 +1,16 @@
+[package]
+name = "instagram-private-api-rust"
+version = "0.1.0"
+edition = "2021"
+description = "Rust migration scaffold for instagram-private-api"
+license = "MIT"
+
+[lib]
+path = "rust/src/lib.rs"
+
+[workspace]
+members = ["."]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+thiserror = "1"
