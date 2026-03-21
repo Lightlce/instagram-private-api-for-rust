@@ -1,0 +1,45 @@
+{
+  "tracked_groups": [
+    {
+      "name": "core-runtime",
+      "typescript": [
+        "src/core/client.ts",
+        "src/core/state.ts",
+        "src/core/request.ts"
+      ],
+      "rust": [
+        "rust/src/client/mod.rs",
+        "rust/src/state/mod.rs",
+        "rust/src/http/mod.rs"
+      ]
+    },
+    {
+      "name": "repositories",
+      "typescript": [
+        "src/repositories/account.repository.ts",
+        "src/repositories/media.repository.ts",
+        "src/repositories/live.repository.ts",
+        "src/repositories/music.repository.ts",
+        "src/repositories/igtv.repository.ts",
+        "src/repositories/highlights.repository.ts",
+        "src/repositories/ads.repository.ts"
+      ],
+      "rust": [
+        "rust/src/repositories/mod.rs"
+      ]
+    },
+    {
+      "name": "feeds-services-models",
+      "typescript": [
+        "src/feeds/discover.feed.ts",
+        "src/services/publish.service.ts",
+        "src/responses/account.repository.login.response.ts"
+      ],
+      "rust": [
+        "rust/src/feeds/mod.rs",
+        "rust/src/services/mod.rs",
+        "rust/src/models/generated/mod.rs"
+      ]
+    }
+  ]
+}

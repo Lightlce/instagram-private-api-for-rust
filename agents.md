@@ -48,10 +48,10 @@ The migration should prioritize correctness and compatibility first, then ergono
 - [x] ✅ Port Tier 1 repositories (auth/session/content essentials).
 - [x] ✅ Port feed framework and feed factory equivalents.
 - [x] ✅ Port services (`publish`, `simulate`, `story`, `search`, `insights`).
-- [ ] Port advanced repositories (live, music, igtv, highlights, ads, etc.).
-- [ ] Create parity matrix and test harness against TS behavior.
-- [ ] Add Rust examples equivalent to current TypeScript examples.
-- [ ] Stage rollout with dual-run validation before TS deprecation.
+- [x] ✅ Port advanced repositories (live, music, igtv, highlights, ads, etc.).
+- [x] ✅ Create parity matrix and test harness against TS behavior.
+- [x] ✅ Add Rust examples equivalent to current TypeScript examples.
+- [x] ✅ Stage rollout with dual-run validation before TS deprecation.
 
 ## 4) File Structure
 
