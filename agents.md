@@ -42,8 +42,8 @@ The migration should prioritize correctness and compatibility first, then ergono
 ## 3) List of Open Tasks
 
 - [x] ✅ Initialize Rust crate/workspace mirroring TypeScript module boundaries.
-- [ ] Implement Rust `State` with deterministic device generation and session serialization.
-- [ ] Implement request layer with signing, headers, retries, and typed error mapping.
+- [x] ✅ Implement Rust `State` with deterministic device generation and session serialization.
+- [x] ✅ Implement request layer with signing, headers, retries, and typed error mapping.
 - [ ] Build model generation workflow from TS response/type declarations.
 - [ ] Port Tier 1 repositories (auth/session/content essentials).
 - [ ] Port feed framework and feed factory equivalents.
