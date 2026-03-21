@@ -99,7 +99,7 @@ The migration should prioritize correctness and compatibility first, then ergono
 - Proceed with any non-blocking tasks.
   - For blocking tasks, add questions in `.agents/qna.md` using a reddit-style thread per question and include status so answers can be provided asynchronously.
   - After posting a blocking question, continue with the next non-blocking task.
-- Check `./agents/qna.md` for updates and follow up on them.
+- Check `./.agents/qna.md` for updates and follow up on them.
 
 ## 6) Agent Forbids
 
