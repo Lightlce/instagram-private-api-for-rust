@@ -12,3 +12,6 @@ Untitled*
 .env
 dist
 tools/state.json
+
+# Rust build artifacts
+target/
