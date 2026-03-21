@@ -164,8 +164,8 @@ impl HighlightsRepository {
         Self { context }
     }
 
-    pub fn tray_endpoint(&self) -> &'static str {
-        "/api/v1/highlights/tray/"
+    pub fn tray_endpoint(&self, user_id: &str) -> String {
+        format!("/api/v1/highlights/{user_id}/highlights_tray/")
     }
 
     pub fn reels_endpoint(&self) -> &'static str {
@@ -269,8 +269,8 @@ mod tests {
             "/api/v1/igtv/search/"
         );
         assert_eq!(
-            repos.advanced.highlights.tray_endpoint(),
-            "/api/v1/highlights/tray/"
+            repos.advanced.highlights.tray_endpoint("42"),
+            "/api/v1/highlights/42/highlights_tray/"
         );
         assert_eq!(
             repos.advanced.ads.account_endpoint(),

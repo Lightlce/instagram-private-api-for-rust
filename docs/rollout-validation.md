@@ -7,6 +7,6 @@ This repository now contains a dual-run validation script at:
 The script executes:
 
 1. `cargo test`
-2. `npm test -- --runInBand`
+2. `npm test`
 
 Use this during staged rollout to compare behavior while Rust and TypeScript implementations coexist.

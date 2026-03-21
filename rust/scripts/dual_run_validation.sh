@@ -9,6 +9,6 @@ echo "== Rust checks =="
 cargo test
 
 echo "== TypeScript checks =="
-npm test -- --runInBand
+npm test
 
 echo "Dual-run validation complete."
