@@ -33,3 +33,8 @@ _Date: 2026-03-21_
 
 - [x] Manifest/file-system parity assertions added in Rust tests.
 - [x] Dual-run Rust + TypeScript validation script executes successfully (`bash rust/scripts/dual_run_validation.sh`).
+
+## Endpoint Inventory
+
+- [x] Canonical TypeScript endpoint inventory captured in `rust/parity/typescript-endpoints.txt` (182 unique URL templates extracted from `src/repositories`, `src/feeds`, and `src/services`).
+- [x] TypeScript parity smoke tests assert the inventory stays in sync with source endpoint declarations (`tests/run.js`).
