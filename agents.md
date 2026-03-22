@@ -43,11 +43,19 @@ The migration should prioritize correctness and compatibility first, then ergono
 
 ### Pending Plans Overview
 
-- [ ] **Active:** `parity-validation-plan-20260321131136.md`
+- [x] ✅ **Completed:** `parity-validation-plan-20260321131136.md`
+
   - Scope: full parity audit for completed migration tasks.
   - Open Tasks: 6
-  - Progress: 0 / 6
-  - Blockers: TypeScript test runtime dependencies (`mocha`).
+  - Progress: 6 / 6
+  - Blockers: None.
+
+- [ ] **Active:** `migration-parity-gap-plan-20260321151308.md`
+
+  - Scope: migration parity gap closure plan with prioritized execution tracks.
+  - Open Tasks: 9
+  - Progress: 1 / 9
+  - Blockers: None.
 
 - [x] ✅ Initialize Rust crate/workspace mirroring TypeScript module boundaries.
 - [x] ✅ Implement Rust `State` with deterministic device generation and session serialization.
@@ -92,6 +100,7 @@ The migration should prioritize correctness and compatibility first, then ergono
 - Realign to `agents.md` to set your true north.
 - Add a context summary in `.agents/memories/context` after each prompt to avoid context drift. `agents.md` takes precedence over memories and sets the true north. Use filenames like `context-YYYYmmDDHHMMss.md`.
 - Document plans in `.agents/memories/plans` using names like `name-of-plan-YYYYmmDDHHMMss.md`.
+- Every open plan created under `.agents/memories/plans` must be added to the "Pending Plans Overview" in this file within the same change.
 - Always follow secure security practices and keep any sensitive information away from this directory, including untracked files in git.
 - Commit changes following conventional commit rules after each sensible change.
   - Before committing: run linters/formatters, standardize code, and update progress on completed items using checkmark emojis.
@@ -101,6 +110,7 @@ The migration should prioritize correctness and compatibility first, then ergono
   - For blocking tasks, add questions in `.agents/qna.md` using a reddit-style thread per question and include status so answers can be provided asynchronously.
   - After posting a blocking question, continue with the next non-blocking task.
 - Check `./.agents/qna.md` for updates and follow up on them.
+- Before stopping work, review `./.agents/qna.md`, update any closed topics to `[closed]`, and post follow-up replies/status updates for active conversations.
 
 ## 6) Agent Forbids
 
