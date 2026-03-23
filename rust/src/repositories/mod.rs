@@ -88,6 +88,254 @@ impl SessionRepository {
     }
 }
 
+/// User repository primitives.
+#[derive(Debug, Clone)]
+pub struct UserRepository {
+    context: RepositoryContext,
+}
+
+impl UserRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn info_endpoint(&self, id: &str) -> String {
+        format!("/api/v1/users/{id}/info/")
+    }
+
+    pub fn username_info_endpoint(&self, username: &str) -> String {
+        format!("/api/v1/users/{username}/usernameinfo/")
+    }
+
+    pub fn search_endpoint(&self) -> &'static str {
+        "/api/v1/users/search/"
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Friendship repository primitives.
+#[derive(Debug, Clone)]
+pub struct FriendshipRepository {
+    context: RepositoryContext,
+}
+
+impl FriendshipRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn show_endpoint(&self, id: &str) -> String {
+        format!("/api/v1/friendships/show/{id}/")
+    }
+
+    pub fn show_many_endpoint(&self) -> &'static str {
+        "/api/v1/friendships/show_many/"
+    }
+
+    pub fn action_endpoint(&self, action: &str, id: &str) -> String {
+        format!("/api/v1/friendships/{action}/{id}/")
+    }
+
+    pub fn followers_endpoint(&self, id: &str) -> String {
+        format!("/api/v1/friendships/{id}/followers/")
+    }
+
+    pub fn following_endpoint(&self, id: &str) -> String {
+        format!("/api/v1/friendships/{id}/following/")
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Direct repository primitives.
+#[derive(Debug, Clone)]
+pub struct DirectRepository {
+    context: RepositoryContext,
+}
+
+impl DirectRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn create_group_thread_endpoint(&self) -> &'static str {
+        "/api/v1/direct_v2/create_group_thread/"
+    }
+
+    pub fn ranked_recipients_endpoint(&self) -> &'static str {
+        "/api/v1/direct_v2/ranked_recipients/"
+    }
+
+    pub fn get_presence_endpoint(&self) -> &'static str {
+        "/api/v1/direct_v2/get_presence/"
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Direct thread repository primitives.
+#[derive(Debug, Clone)]
+pub struct DirectThreadRepository {
+    context: RepositoryContext,
+}
+
+impl DirectThreadRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn thread_endpoint(&self, thread_id: &str) -> String {
+        format!("/api/v1/direct_v2/threads/{thread_id}/")
+    }
+
+    pub fn approve_endpoint(&self, thread_id: &str) -> String {
+        format!("/api/v1/direct_v2/threads/{thread_id}/approve/")
+    }
+
+    pub fn decline_endpoint(&self, thread_id: &str) -> String {
+        format!("/api/v1/direct_v2/threads/{thread_id}/decline/")
+    }
+
+    pub fn broadcast_endpoint(&self, item: &str) -> String {
+        format!("/api/v1/direct_v2/threads/broadcast/{item}/")
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Discover repository primitives.
+#[derive(Debug, Clone)]
+pub struct DiscoverRepository {
+    context: RepositoryContext,
+}
+
+impl DiscoverRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn chaining_endpoint(&self) -> &'static str {
+        "/api/v1/discover/chaining/"
+    }
+
+    pub fn topical_explore_endpoint(&self) -> &'static str {
+        "/api/v1/discover/topical_explore/"
+    }
+
+    pub fn mark_su_seen_endpoint(&self) -> &'static str {
+        "/api/v1/discover/mark_su_seen/"
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Tag repository primitives.
+#[derive(Debug, Clone)]
+pub struct TagRepository {
+    context: RepositoryContext,
+}
+
+impl TagRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn search_endpoint(&self) -> &'static str {
+        "/api/v1/tags/search/"
+    }
+
+    pub fn sections_endpoint(&self, tag: &str) -> String {
+        format!("/api/v1/tags/{tag}/sections/")
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Location repository primitives.
+#[derive(Debug, Clone)]
+pub struct LocationRepository {
+    context: RepositoryContext,
+}
+
+impl LocationRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn info_endpoint(&self, id: &str) -> String {
+        format!("/api/v1/locations/{id}/info/")
+    }
+
+    pub fn story_endpoint(&self, id: &str) -> String {
+        format!("/api/v1/locations/{id}/story/")
+    }
+
+    pub fn search_endpoint(&self) -> &'static str {
+        "/api/v1/location_search/"
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Upload repository primitives.
+#[derive(Debug, Clone)]
+pub struct UploadRepository {
+    context: RepositoryContext,
+}
+
+impl UploadRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn photo_rupload_endpoint(&self, name: &str) -> String {
+        format!("/rupload_igphoto/{name}")
+    }
+
+    pub fn video_rupload_endpoint(&self, name: &str) -> String {
+        format!("/rupload_igvideo/{name}")
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
+/// Status repository primitives.
+#[derive(Debug, Clone)]
+pub struct StatusRepository {
+    context: RepositoryContext,
+}
+
+impl StatusRepository {
+    pub fn new(context: RepositoryContext) -> Self {
+        Self { context }
+    }
+
+    pub fn get_viewable_statuses_endpoint(&self) -> &'static str {
+        "/api/v1/status/get_viewable_statuses/"
+    }
+
+    pub fn headers(&self) -> Vec<(String, String)> {
+        self.context.default_headers()
+    }
+}
+
 /// Advanced repository primitives.
 #[derive(Debug, Clone)]
 pub struct LiveRepository {
@@ -232,6 +480,15 @@ pub struct Repositories {
     pub account: AccountRepository,
     pub media: MediaRepository,
     pub session: SessionRepository,
+    pub user: UserRepository,
+    pub friendship: FriendshipRepository,
+    pub direct: DirectRepository,
+    pub direct_thread: DirectThreadRepository,
+    pub discover: DiscoverRepository,
+    pub tag: TagRepository,
+    pub location: LocationRepository,
+    pub upload: UploadRepository,
+    pub status: StatusRepository,
     pub advanced: AdvancedRepositories,
 }
 
@@ -242,6 +499,15 @@ impl Repositories {
             account: AccountRepository::new(context.clone()),
             media: MediaRepository::new(context.clone()),
             session: SessionRepository::new(context.clone()),
+            user: UserRepository::new(context.clone()),
+            friendship: FriendshipRepository::new(context.clone()),
+            direct: DirectRepository::new(context.clone()),
+            direct_thread: DirectThreadRepository::new(context.clone()),
+            discover: DiscoverRepository::new(context.clone()),
+            tag: TagRepository::new(context.clone()),
+            location: LocationRepository::new(context.clone()),
+            upload: UploadRepository::new(context.clone()),
+            status: StatusRepository::new(context.clone()),
             advanced: AdvancedRepositories::new(context),
         }
     }
@@ -260,6 +526,36 @@ mod tests {
         assert_eq!(repos.account.login_endpoint(), "/api/v1/accounts/login/");
         assert_eq!(repos.session.sync_endpoint(), "/api/v1/qe/sync/");
         assert_eq!(repos.media.info_endpoint("123"), "/api/v1/media/123/info/");
+        assert_eq!(repos.user.info_endpoint("42"), "/api/v1/users/42/info/");
+        assert_eq!(
+            repos.friendship.action_endpoint("follow", "42"),
+            "/api/v1/friendships/follow/42/"
+        );
+        assert_eq!(
+            repos.direct.create_group_thread_endpoint(),
+            "/api/v1/direct_v2/create_group_thread/"
+        );
+        assert_eq!(
+            repos.direct_thread.approve_endpoint("123"),
+            "/api/v1/direct_v2/threads/123/approve/"
+        );
+        assert_eq!(
+            repos.discover.topical_explore_endpoint(),
+            "/api/v1/discover/topical_explore/"
+        );
+        assert_eq!(repos.tag.search_endpoint(), "/api/v1/tags/search/");
+        assert_eq!(
+            repos.location.search_endpoint(),
+            "/api/v1/location_search/"
+        );
+        assert_eq!(
+            repos.upload.photo_rupload_endpoint("upload-name"),
+            "/rupload_igphoto/upload-name"
+        );
+        assert_eq!(
+            repos.status.get_viewable_statuses_endpoint(),
+            "/api/v1/status/get_viewable_statuses/"
+        );
         assert_eq!(
             repos.advanced.live.create_broadcast_endpoint(),
             "/api/v1/live/create/"
