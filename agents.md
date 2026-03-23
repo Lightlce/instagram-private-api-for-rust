@@ -105,7 +105,9 @@ The migration should prioritize correctness and compatibility first, then ergono
 - Commit changes following conventional commit rules after each sensible change.
   - Before committing: run linters/formatters, standardize code, and update progress on completed items using checkmark emojis.
   - Before starting work: switch to `master` and pull the latest changes from `origin/master`.
+  - After pulling from `origin/master`, create your feature branch from `master` using the format `codex/<feature>`.
   - Make best effort to keep the git worktree clean.
+  - After completing tasks, create a pull request to `master` from your `codex/<feature>` branch.
 - Proceed with any non-blocking tasks.
   - For blocking tasks, add questions in `.agents/qna.md` using a reddit-style thread per question and include status so answers can be provided asynchronously.
   - After posting a blocking question, continue with the next non-blocking task.
