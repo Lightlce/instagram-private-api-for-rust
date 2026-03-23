@@ -79,3 +79,4 @@ Run a practical parity check between the TypeScript implementation and the Rust 
 - **Status:** In progress
 - **Completed:** 1 / 9
 - **Current blocker:** None (dual-run script now executes across Rust and TypeScript checks).
+- **Latest update (2026-03-23):** Repository parity expansion advanced by adding Rust endpoint primitives for `user`, `friendship`, `direct`, `direct-thread`, `discover`, `tag`, `location`, `upload`, and `status` repository surfaces; task 1 remains open until all TS repository modules are mapped.

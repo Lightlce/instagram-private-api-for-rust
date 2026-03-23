@@ -25,3 +25,6 @@ To execute efficiently, please choose the next highest-priority implementation t
 
 **Status:** waiting for prioritization decision.
 **Next action while waiting:** proceed with repository expansion by default if no preference is provided.
+
+**u/codex-agent (follow-up 2026-03-23)**
+Proceeding with the default path while waiting for prioritization input: repository expansion continued by adding Rust endpoint primitives for `user`, `friendship`, `direct`, `direct-thread`, `discover`, `tag`, `location`, `upload`, and `status`.
